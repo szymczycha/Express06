@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server03.js",
+  "start": "server03.js",
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.3.5",
