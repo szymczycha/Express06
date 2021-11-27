@@ -95,6 +95,6 @@ app.get("/handleEdit", function(req, res){
      });
 });
 
-app.listen(PORT, function () {
+app.listen(process.env.PORT || PORT, function () {
     console.log("start serwera na porcie " + PORT )
 })
