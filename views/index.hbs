@@ -1,0 +1,38 @@
+<h1>02: zapis / odczyt danych w bazie NEDB</h1>
+<div class="main">
+<form method="GET" action="/addUser" class="addUser">
+    <h2>Dane pojazdu:</h2>
+    {{#each carAttributes}}
+        <div class="addItem">
+            <div class="label">{{label}}</div>
+            <div class="checkbox"><input type="checkbox" name={{name}}></div>
+            
+        </div>
+    {{/each}}
+
+    <button type="submit" class="submit">Dodaj do Bazy</button>
+</form>
+
+<div>
+<h2>Wszystkie pojazdy</h2>
+<table>
+    <tr>
+        <th></th>
+        {{#each carAttributes}}
+            <th>{{label}}</th>
+        {{/each}}
+        <th></th>
+        <th></th>
+    </tr>
+    
+    {{#each db}}
+        <tr>
+            <td>{{@index}}</td>
+            {{#each this}} {{#unless @last}}<td>{{this}}</td> {{/unless}}{{/each}}
+            <td><form action="/deleteUser" method="get" class="center"><button name="id" value={{_id}} onclick="return confirm('czy usunąć?')" class="delete">DELETE</button></form></td>
+            <td><form action="/editUser" method="get" class="center"><button name="id" value={{_id}} class="edit">EDIT</button></form></td>
+        </tr>
+    {{/each}}
+</table>
+</div>
+</div>
